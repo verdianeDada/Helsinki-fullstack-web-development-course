@@ -1,3 +1,5 @@
+#Sequence diagram: opening the SPA application in the browser 
+
 ```mermaid
 sequenceDiagram
     participant Browser

@@ -1,3 +1,5 @@
+#Sequence diagram: Adding a new note to the NOT SPA application
+
 ```mermaid
 sequenceDiagram
     participant Browser
