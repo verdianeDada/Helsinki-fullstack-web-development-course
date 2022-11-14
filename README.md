@@ -1,8 +1,8 @@
-# Fullstack web development course excercises, the University of Helsinki , Finland*
+# Fullstack web development course exercises, the University of Helsinki ,Finland
 
 # About
 
-Here are the exercises I've submitted during the Fullstack web development course at the University of Helsinki , Finland
+Here are the exercises I've successfully submited during the Fullstack web development course program at the University of Helsinki , Finland
 fullstackopen2022.
 I'ts about learning ```React, Redux, Node.js, MongoDB, GraphQL``` and ```TypeScript ``` in one go! This course  introduces  to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.
 
