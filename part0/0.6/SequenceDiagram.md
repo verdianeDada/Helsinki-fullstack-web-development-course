@@ -1,7 +1,4 @@
-# Adding
-
-
-#Sequence diagram: Adding a new note to the SPA application
+# Sequence diagram: Adding a new note to the SPA application
 ```mermaid
 sequenceDiagram
     participant Browser

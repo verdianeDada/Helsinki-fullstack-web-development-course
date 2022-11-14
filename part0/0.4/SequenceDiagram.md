@@ -1,4 +1,4 @@
-#Sequence diagram: Adding a new note to the NOT SPA application
+# Sequence diagram: Adding a new note to the NOT SPA application
 
 ```mermaid
 sequenceDiagram
