@@ -51,7 +51,7 @@ const App = () => {
       <h1>Give feedback</h1>
       <Button onClick={newGood} text = "Good"/>
       <Button onClick={newNeutral}text="Neutral" />
-      <Button onClick={newBad} text="Bads"/>
+      <Button onClick={newBad} text="Bad"/>
       <h1>Statistics</h1>
       <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
