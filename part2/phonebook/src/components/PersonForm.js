@@ -1,6 +1,7 @@
-const PersonFrom = ({AddingName, newName, setNewName, setNewNumber, newNumber}) => {
+const PersonForm = ({ AddingName, newName, setNewName, setNewNumber, newNumber }) => {
+  return (
     <div>
-        <form onSubmit={AddingName}>
+      <form onSubmit={AddingName}>
         <div>
           Name: <input type="text" required value={newName} onChange={(e) => setNewName(e.target.value)} />
         </div>
@@ -12,5 +13,6 @@ const PersonFrom = ({AddingName, newName, setNewName, setNewNumber, newNumber}) 
         </div>
       </form>
     </div>
+  )
 }
-export default PersonFrom
+export default PersonForm
