@@ -26,7 +26,6 @@ const App = () => {
       number: newNumber
     }
 
-    // const exists= persons.map(person => person.name === tempNewPerson.name ) 
 
     // checking if persons already has an object with the new name
     persons.some(person => person.name === newName)
