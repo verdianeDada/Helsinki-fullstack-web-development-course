@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-import Country from './components/Country'
+import Countries from './components/Countries'
   
 const App = () => {
 
@@ -65,7 +65,7 @@ const App = () => {
         {
           warning.isWarning
           ? <p>{warning.value}</p> 
-          :  <Country filteredCountries={filteredCountries} showOneItem = {showOneItem} />
+          :  <Countries setShowOneItem = {setShowOneItem} setFilteredCountries = {setFilteredCountries} filteredCountries={filteredCountries} showOneItem = {showOneItem} />
         }
       </form> 
     </div>
