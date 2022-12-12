@@ -11,6 +11,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState("39-44-5323523")
   const [filteredPersons, setFilteredPersons] = useState([])
   const [isFiltered, setIsFiltered] = useState(false)
+  const [notification, setNotification] = useState({isNotification: false, type:'', message: ''})
 
   useEffect(() => {
     PersonLogic
@@ -41,8 +42,15 @@ const App = () => {
             setPersons(persons.map(p => p.id === changedPerson.id ? changedPerson : p))
             setNewName('')
             setNewNumber("39-44-5323523")
+            setNotification({isNotification: true, type: 'success', message: `Successfully changed ${newName}`})
+            setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
           })
-          .catch(error => console.log(error))
+          .catch(error => {
+            console.log(error)            
+            setNotification({isNotification: true, type: 'warning', message: `Information of ${newName} has already removed from server`})
+            setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+            setPersons(persons.filter(p => p.id !== existPerson.id))
+          })
       }
     }
     else {
@@ -53,20 +61,29 @@ const App = () => {
           setPersons(persons.concat(newPerson))
           setNewName('')
           setNewNumber("39-44-5323523")
+          setNotification({isNotification: true, type: 'success', message: `Successfully added ${newName}`})
+          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
         })
         .catch(error => console.log(error))
     }
   }
 
-  const deletePerson = id => {
+  const deletePerson = person => {
     if (window.confirm("Do you really want to delete this name?")) {
       PersonLogic
-        .delete(id)
+        .delete(person.id)
         .then(res => {
+          setNotification({isNotification: true, type: 'warning', message: 'Successfully deleted'})
+          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
           console.log("deleted")
-          setPersons(persons.filter(p => p.id !== id))
+          setPersons(persons.filter(p => p.id !== person.id))
+
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          setNotification({isNotification: true, type: 'warning', message: `Information of ${person.name} has already removed from server`})
+          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+          setPersons(persons.filter(p => p.id !== person.id))
+        })
     }
   }
 
@@ -80,7 +97,7 @@ const App = () => {
     else
       return (
         <div>
-          {persons.map((person) => <p key={person.id}>{person.name} {person.number} <button onClick={() => deletePerson(person.id)}>delete</button></p>)}
+          {persons.map((person) => <p key={person.id}>{person.name} {person.number} <button onClick={() => deletePerson(person)}>delete</button></p>)}
         </div>
       )
   }
@@ -103,6 +120,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Filter onChange={filter} />
+      {notification.isNotification ?  <div className={notification.type}>{notification.message}</div> : <></>}
       <h2>Add a new</h2>
       <PersonForm AddingName={AddingName} newName={newName} setNewName={setNewName} setNewNumber={setNewNumber} newNumber={newNumber} />
       <h2>Numbers</h2>

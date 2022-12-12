@@ -1,0 +1,22 @@
+h2 {
+    color: green;
+}
+
+.success {
+    padding: 10px;
+    color: green;
+    border: 5px solid green;
+    border-radius: 5px;
+    background:   rgb(232, 243, 255);
+    font-size: 20px;
+    margin: 10px 0;
+}
+.warning {
+    padding: 10px;
+    color: red;
+    border: 5px solid red;
+    border-radius: 5px;
+    background:   rgb(232, 243, 255);
+    font-size: 20px;
+    margin: 10px 0;
+}
