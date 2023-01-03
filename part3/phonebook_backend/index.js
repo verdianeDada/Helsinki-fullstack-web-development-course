@@ -14,7 +14,7 @@ let persons = [
   {
     "id": 1,
     "name": "Arto Hellas",
-    "number": "040-123456"
+    "number": "39-40-123456"
   },
   {
     "id": 2,
@@ -69,7 +69,8 @@ app.post('/api/persons', (req, res) => {
   if (existing)
     res.json({ error: "Name must be unique" })
 
-  person.id = Math.floor(Math.random() * 10000),
+  person.id = Math.floor(Math.random() * 10000)
+  // debugger;
     persons = persons.concat(person)
   console.log('inserted')
   res.json(person)

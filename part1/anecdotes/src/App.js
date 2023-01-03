@@ -32,12 +32,12 @@ const App = () => {
     <div>
       <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
-      <p>has {votes[selected]} votes</p>
+      <p><strong> has {votes[selected]} votes</strong></p>
       <button onClick={addVote} >Vote</button>
       <button onClick = {selectAnecdote}>Next anecdote</button>
       <h1>Anecdote with the most votes</h1>
       <p>{anecdotes[maxVote]}</p>
-      <p>has {votes[maxVote]}</p>
+      <p><strong> has {votes[maxVote]}</strong></p>
     </div>
   )
 }

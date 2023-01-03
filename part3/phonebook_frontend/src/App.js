@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
@@ -19,7 +19,7 @@ const App = () => {
       .then(persons => {
         setPersons(persons)
       })
-      .catch(error => console.log(error)
+      .catch(error => console.log(error)  
       )
   }, [])
 

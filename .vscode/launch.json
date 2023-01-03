@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Lancer le programme",
-            "program": "${workspaceFolder}/part3\\express\\index.js"
+            "program": "${workspaceFolder}/part3\\phonebook_backend\\index.js"
         }
     ]
 }
