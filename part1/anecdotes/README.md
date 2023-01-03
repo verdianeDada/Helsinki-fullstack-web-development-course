@@ -4,7 +4,7 @@
   
 
 
-https://github.com/verdianeDada/Helsinki-fullstack-web-development-course/blob/main/part1/anecdotes/demo.gif
+https://github.com/verdianeDada/Helsinki-fullstack-web-development-course/blob/main/part1/anecdotes/demo.mp4
 
 
 
