@@ -4,25 +4,20 @@
   
 
 
-https://user-images.githubusercontent.com/35493201/186771686-98b687b0-6dc1-4f64-af54-0078206155b3.mp4
+https://github.com/verdianeDada/Helsinki-fullstack-web-development-course/blob/main/part1/anecdotes/demo.gif
 
 
 
 </div>
 
 ## Description
+This app randomnly shows anecdotes and the one who has the higher number of votes. If 2 anecdotes have the same score, then the first one in the list in presented.
 
 ## Technologies
 This project has been created using:
 - ```ReactJS``` version: 18.2.0
 
 ## Installation 
-To get exactly the same result, install
-- ```XAMMP``` version: 7.4.2
-- ```Nodejs```version: 10.16.0
-- ```Composer```version: 5.1.0.0
-
-## Setup
 Clone this directory (Anecdotrs) and run the following command at its root:
 
 Run the following commands to install Node and Laravel dependencies:
