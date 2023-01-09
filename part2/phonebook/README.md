@@ -18,7 +18,7 @@ This project has been created using:
 - ```ReactJS``` version: 18.2.0
 
 ## Installation 
-Clone this directory (dataèfor-country) and run the following command at its root:
+Clone this directory (phonebook) and run the following command at its root:
 
 Run the following commands to install Node and Laravel dependencies:
 ```sh

@@ -103,11 +103,8 @@ const App = () => {
   }
 
   const filter = (event) => {
-
-    event.target.value
-      ? setIsFiltered(true)
-      : setIsFiltered(false)
-    console.log(isFiltered);
+    
+    setIsFiltered(!!event.target.value)
 
     if (isFiltered) {
       const tempFiltered = persons.filter(person => person.name.toLowerCase().includes(event.target.value.toLowerCase()))
