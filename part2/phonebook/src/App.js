@@ -10,8 +10,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState("39-44-5323523")
   const [filteredPersons, setFilteredPersons] = useState([])
-  const [isFiltered, setIsFiltered] = useState(false)
-  const [notification, setNotification] = useState({isNotification: false, type:'', message: ''})
+  const [search, setSearch] = useState('')
+  const [notification, setNotification] = useState({ isNotification: false, type: '', message: '' })
 
   useEffect(() => {
     PersonLogic
@@ -42,13 +42,13 @@ const App = () => {
             setPersons(persons.map(p => p.id === changedPerson.id ? changedPerson : p))
             setNewName('')
             setNewNumber("39-44-5323523")
-            setNotification({isNotification: true, type: 'success', message: `Successfully changed ${newName}`})
-            setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+            setNotification({ isNotification: true, type: 'success', message: `Successfully changed ${newName}` })
+            setTimeout(() => setNotification({ ...notification, isNotification: false }), 3000)
           })
           .catch(error => {
-            console.log(error)            
-            setNotification({isNotification: true, type: 'warning', message: `Information of ${newName} has already removed from server`})
-            setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+            console.log(error)
+            setNotification({ isNotification: true, type: 'warning', message: `Information of ${newName} has already removed from server` })
+            setTimeout(() => setNotification({ ...notification, isNotification: false }), 3000)
             setPersons(persons.filter(p => p.id !== existPerson.id))
           })
       }
@@ -61,8 +61,8 @@ const App = () => {
           setPersons(persons.concat(newPerson))
           setNewName('')
           setNewNumber("39-44-5323523")
-          setNotification({isNotification: true, type: 'success', message: `Successfully added ${newName}`})
-          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+          setNotification({ isNotification: true, type: 'success', message: `Successfully added ${newName}` })
+          setTimeout(() => setNotification({ ...notification, isNotification: false }), 3000)
         })
         .catch(error => console.log(error))
     }
@@ -73,22 +73,22 @@ const App = () => {
       PersonLogic
         .delete(person.id)
         .then(res => {
-          setNotification({isNotification: true, type: 'warning', message: 'Successfully deleted'})
-          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+          setNotification({ isNotification: true, type: 'warning', message: 'Successfully deleted' })
+          setTimeout(() => setNotification({ ...notification, isNotification: false }), 3000)
           console.log("deleted")
           setPersons(persons.filter(p => p.id !== person.id))
 
         })
         .catch(error => {
-          setNotification({isNotification: true, type: 'warning', message: `Information of ${person.name} has already removed from server`})
-          setTimeout(() => setNotification({...notification, isNotification: false}), 3000)
+          setNotification({ isNotification: true, type: 'warning', message: `Information of ${person.name} has already removed from server` })
+          setTimeout(() => setNotification({ ...notification, isNotification: false }), 3000)
           setPersons(persons.filter(p => p.id !== person.id))
         })
     }
   }
 
   const Persons = () => {
-    if (isFiltered)
+    if (search)
       return (
         <div>
           {filteredPersons.map((person) => <p key={person.id}>{person.name} {person.number}</p>)}
@@ -102,22 +102,20 @@ const App = () => {
       )
   }
 
-  const filter = (event) => {
-    
-    setIsFiltered(!!event.target.value)
-
-    if (isFiltered) {
-      const tempFiltered = persons.filter(person => person.name.toLowerCase().includes(event.target.value.toLowerCase()))
+  useEffect(() => {
+  
+    if (search) {
+      const tempFiltered = persons.filter(person => person.name.toLowerCase().includes(search.toLowerCase()))
       setFilteredPersons(tempFiltered)
-      console.log(filteredPersons)
     }
 
-  }
+  }, [search])
+
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter onChange={filter} />
-      {notification.isNotification ?  <div className={notification.type}>{notification.message}</div> : <></>}
+      <Filter onChange={(e) =>  setSearch(e.target.value)} />
+      {notification.isNotification ? <div className={notification.type}>{notification.message}</div> : <></>}
       <h2>Add a new</h2>
       <PersonForm AddingName={AddingName} newName={newName} setNewName={setNewName} setNewNumber={setNewNumber} newNumber={newNumber} />
       <h2>Numbers</h2>
